@@ -23,6 +23,9 @@
 //         this.handle = handle;
 //     }
 
+       /*オーバーライドとは、継承元であるスーパークラス（親クラス）で定義されているメソッドを、
+         サブクラス（子クラス）で書き換える 
+       */
 //     // Overriding the start method
 //     public void start() {
 //         System.out.println("BOOM BOOM!");

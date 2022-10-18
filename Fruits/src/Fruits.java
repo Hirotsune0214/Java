@@ -17,6 +17,7 @@ public class Fruits {
       this.quantity = 1;
     }
   
+    //メソッド
     public void addQuantity() {
         this.weight = this.weight + 5; //9 
         this.price = this.price + 4; //4
