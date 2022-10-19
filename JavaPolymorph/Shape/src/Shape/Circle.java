@@ -4,15 +4,15 @@ public class Circle extends Shape {
     private double radius; //半径
     private double diameter; //直径
 
-    // public Circle(double r) { //parameter
-    //     this.radius = r;
-    //     this.diameter = radius * 2;
-    // }
+    public Circle(double r) { //parameter
+        this.radius = r;
+        this.diameter = radius * 2;
+    }
 
     
-    public Circle(double d) { //parameter
-        this.diameter = d;
-    }
+    // public Circle(double d) { //parameter
+    //     this.diameter = d;
+    // }
 
 
     // @Override
