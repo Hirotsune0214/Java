@@ -1,9 +1,18 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
+//外と中でvalueを入れて、外の値が中で合っているかを確認する
 public class App {
     public static void main(String[] args) {
-        while (true) { //infinite loop because of true
+      
+        String s1 = "Yes";
+        String s2 = "No";
+        String s3 = "yes";
+        String s4 = "no";
+        
+        repeat: while (true) { //infinite loop because of true. Label
+    
         System.out.println("==============================");
         System.out.println("Type 1 : For Adding");
         System.out.println("Type 2 : For Subtraction");
@@ -11,17 +20,19 @@ public class App {
         System.out.println("==============================");
 
         Scanner sc = new Scanner(System.in);
-
+        
         // System.out.println("Please enter First Number : ");
         // int num1Input = sc.nextInt();
 
         // boolean b = true;
+       
+        //int userSelect = 0;
         int userChoice = 0;
         int number1 = 1;
         int number2 = 1;
         int number3 = 0;
-        // String str = "Yes";
-        int userSelect = 0;
+
+       
 
         int output = 0;
         System.out.println("PLease enter a choice : ");
@@ -50,17 +61,21 @@ public class App {
                 }
                 System.out.println("Your final output is : " + output);
                 System.out.println("The operation is completed");
-                       System.out.println("Do you want to use calculator again ?\r\nIf Yes : 0, If No : 1-9");
-                userSelect = sc.nextInt();
+                Scanner myObj = new Scanner(System.in);
+                System.out.println("Do you want to use calculator again ?\r\nPlease type Yes or No");
+                
+                String userSelect = myObj.nextLine();
+                //userSelect = sc.nextInt();
                 //while (true) { 
-                if (userSelect == 0) {
-                    //i++; infinite loop so need i++ or something like that
-                    continue;
-                } else {
+                if (s1.equals(userSelect) || s3.equals(userSelect)) {
+                  continue repeat;
+                } else if(s2.equals(userSelect) || s4.equals(userSelect) ){ //Worked
+                    break;
+                } else{
+                    System.out.println("You typed wrong"); //Worked
                     break;
                 }
 
-            
 
         } catch (InputMismatchException e) {
             System.out.println("Please enter a number which is valid meaning integer");
