@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 
 //外と中でvalueを入れて、外の値が中で合っているかを確認する
+//while内でtrueかの確認をしてbreakもいれる
 public class App {
     public static void main(String[] args) {
       
@@ -10,9 +11,10 @@ public class App {
         String s2 = "No";
         String s3 = "yes";
         String s4 = "no";
-        
-        repeat: while (true) { //infinite loop because of true. Label
-    
+        String userSelect = s1;
+
+         //infinite loop because of true. Label
+   
         System.out.println("==============================");
         System.out.println("Type 1 : For Adding");
         System.out.println("Type 2 : For Subtraction");
@@ -30,16 +32,16 @@ public class App {
         int userChoice = 0;
         int number1 = 1;
         int number2 = 1;
-        int number3 = 0;
+        //int number3 = 0;
 
        
 
         int output = 0;
         System.out.println("PLease enter a choice : ");
-
+            
         try {
             
-
+            while (s1.equals(userSelect) || s3.equals(userSelect)) {
                 userChoice = sc.nextInt(); // Waiting for a user to enter the input
 
                 System.out.println("Please enter First number : ");
@@ -64,18 +66,18 @@ public class App {
                 Scanner myObj = new Scanner(System.in);
                 System.out.println("Do you want to use calculator again ?\r\nPlease type Yes or No");
                 
-                String userSelect = myObj.nextLine();
+                userSelect = myObj.nextLine();
                 //userSelect = sc.nextInt();
                 //while (true) { 
                 if (s1.equals(userSelect) || s3.equals(userSelect)) {
-                  continue repeat;
+                  output++;
                 } else if(s2.equals(userSelect) || s4.equals(userSelect) ){ //Worked
                     break;
                 } else{
                     System.out.println("You typed wrong"); //Worked
                     break;
                 }
-
+            }
 
         } catch (InputMismatchException e) {
             System.out.println("Please enter a number which is valid meaning integer");
@@ -91,7 +93,6 @@ public class App {
             System.out.println("Thankyou for using the calculator, BYE BYE!");
 
             sc.close();
-        }
         }
     }
 }
