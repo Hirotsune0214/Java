@@ -7,6 +7,10 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
       
+     
+
+       
+
         String s1 = "Yes";
         String s2 = "No";
         String s3 = "yes";
@@ -22,26 +26,28 @@ public class App {
         System.out.println("==============================");
 
         Scanner sc = new Scanner(System.in);
-        
-        // System.out.println("Please enter First Number : ");
-        // int num1Input = sc.nextInt();
 
-        // boolean b = true;
-       
-        //int userSelect = 0;
         int userChoice = 0;
         int number1 = 1;
         int number2 = 1;
-        //int number3 = 0;
-
-       
-
-        int output = 0;
-        System.out.println("PLease enter a choice : ");
             
         try {
+  
+            
+            // System.out.println("Please enter First Number : ");
+            // int num1Input = sc.nextInt();
+    
+            // boolean b = true;
+           
+            //int userSelect = 0;
+
+            //int number3 = 0;
+           
             
             while (s1.equals(userSelect) || s3.equals(userSelect)) {
+
+                int output = 0;
+                System.out.println("PLease enter a choice : ");
                 userChoice = sc.nextInt(); // Waiting for a user to enter the input
 
                 System.out.println("Please enter First number : ");
@@ -81,8 +87,8 @@ public class App {
 
         } catch (InputMismatchException e) {
             System.out.println("Please enter a number which is valid meaning integer");
-        } catch (IllegalStateException e) {
-            System.out.println("Sorry, scanner is closed now");
+        // } catch (IllegalStateException e) {
+        //     System.out.println("Sorry, scanner is closed now");
         } catch (ArithmeticException e) {
             System.out.println("You cannot divide a number by 0");
         } catch (Exception e) {
