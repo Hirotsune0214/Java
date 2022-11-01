@@ -1,7 +1,8 @@
 package Question2;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 // • Create an ArrayList of Integers
 // • Fill the ArrayList with ten random numbers (1-50)
@@ -9,20 +10,31 @@ import java.util.Random;
 // • Change the last value in the first (original) ArrayList to a -5
 // • Display the contents of both ArrayLists
 public class Question2 {
-  public static void main(String[] args) {
-    Integer[] num = new Integer[11]; // declaration
-    Integer[] replica = num.clone();
-    // Integer[] copy = new Integer[10];
-    Random rand = new Random();
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+      // Integer[] num = new Integer[]; //declaration
+      Random rand = new Random();
+      ArrayList<Integer> list = new ArrayList<Integer>();
+      ArrayList<Integer> copy = list;
+      
+  
+      for (int i = 0; i < 10; i++) {
+        list.add(rand.nextInt(51));
+      }
+      System.out.println(list); //original
+      System.out.println(copy); //copy
 
-    for (Integer i = 1; i <= 50; i++) {
-      num[i] = rand.nextInt(50) + 1;
-      System.out.println(num[i]);
-      System.out.println(replica[i]);
+      //sizeで変更出来る
+      //setは値の変更が出来る
+      //list.getで値を取り出せる
+      list.set(list.size() - 1,list.get(list.size() - 1) - 5);
+      System.out.println(list);
+      System.out.println(copy);
+      
+
+  
     }
-    
-
-   
-
   }
-}
+  
