@@ -1,0 +1,63 @@
+<html lang="en">
+
+  <head th:replace="layout  :: head"></head>
+<body>
+  <!--ナビゲーションセクション要素-->
+  <nav th:replace="layout :: nav"></nav>
+
+  <div class="container">
+    <form action="/project/save" method="POST" th:object="${project}">
+      <fieldset>
+        <legend>New Project</legend>
+        <!--「凡例」、「説明文」、「銘」などの意味を持ち、<fieldset>でグループ化されたフォームの入力項目に対して、タイトルを付けるためのタグです -->
+        <div class="form-group mb-3">
+          <label class="mb-3">Project Name: </label>
+          <br>
+          <input class="form-control" type="text" placeholder="Type Project Name here!" th:field="${project.name}">
+        </div>
+
+
+
+        <div class="form-group mb-3">
+          <label class="mb-3">Project Stage: </label>
+          <br>
+          <select  name="" id="" class="form-control" th:field="${project.stage}">
+            <!-- <select multiple name="" id="" class="form-control" th:field="${project.stage}"></select> -->
+            <option value="CANCELLD">CANCELLD</option>
+            <option value="COMPLETED">COMPLETED</option>
+            <option value="IN-PROGRESS">IN-PROGRESS</option>
+          </select>
+        </div>
+
+        <div class="form-group mb-3">
+          <label class="mb-3">Choose Employees: </label>
+          <br>
+
+          <!-- Since we are using an array , I want to bind(まとめる) the values when I select them in options so we have to use * -->
+          <!-- その場合は*を使用する -->
+          <select multiple name="" id="" class="form-control" th:field="*{employees}">
+            <option  th:each="employee : ${employees}" th:value="${employee.employeeId}" th:text="${employee.firstName}"></option>
+          </select>
+
+          <!-- <select multiple class="form-control" th:field="*{employees}">
+            th:eachでループ文が使用出来る 
+            <option th:each="employee : ${employees}" th:text="${employee}" th:value="${employee.employeeId}"></option>
+          </select> -->
+        </div>
+        
+        <div class="form-group mb-3">
+          <label for="">Project Description: </label>
+          <br>
+          <textarea class="form-control" th:field="${project.description}"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-dark mt-3">Create!</button>
+
+      </fieldset><!-- filedsetはフォームの内容をまとめる -->
+
+    </form>
+  </div>
+
+</body>
+
+</html>

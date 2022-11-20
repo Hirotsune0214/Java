@@ -1,0 +1,69 @@
+<html lang="en">
+
+<head th:replace="layout  :: head"></head>
+
+<body>
+
+  <nav th:replace="layout :: nav"></nav>
+
+  <div class="container">
+    <!-- WEBサイトのトップ見出しのデザイン -->
+    <div class="jumbotron">
+      <h1 class="display-4">Hello Developer!</h1>
+      <p>This is the project management application</p>
+      <!-- 「horizontal rule（水平方向の罫線）」 -->
+      <hr>
+    </div>
+
+    <h4>Current Projects</h4>
+
+    <table class="table table-bordered table-striped">
+      <!-- 表のヘッダ部分を定義する際に使います。 -->
+      <thead>
+        <tr>
+          <th>Project Name</th>
+          <th>Project Stage</th>
+          <th>Project Description</th>
+          <th>Project employees</th>
+        </tr>
+      </thead>
+      <thbody>
+        <!-- th:each属性を付けたタグは、「th:each属性に指定したコレクション」の個数分出力される -->
+        <tr th:each="project: ${projects}">
+          <!-- HTMLタグ内の文字列を置換 -->
+          <th th:text="${project.name}"></th>
+          <th th:text="${project.stage}"></th>
+          <th th:text="${project.description}"></th>
+          <th th:text="${project.employees}"></th>
+        </tr>
+      </thbody>
+
+    </table>
+
+      <hr>
+      <h4>Employee Projects</h4>
+
+      <table class="table table-bordered table-striped">
+        <!-- 表のヘッダ部分を定義する際に使います。 -->
+        <thead>
+          <tr>
+            <th>Employee First Name</th>
+            <th>Employee Last Name</th>
+            <th>Employee Email</th>
+          </tr>
+        </thead>
+        <thbody>
+          <!-- th:each属性を付けたタグは、「th:each属性に指定したコレクション」の個数分出力される -->
+          <tr th:each="employee: ${employees}">
+            <!-- HTMLタグ内の文字列を置換 -->
+            <th th:text="${employee.firstName}"></th>
+            <th th:text="${employee.lastName}"></th>
+            <th th:text="${employee.email}"></th>
+          </tr>
+        </thbody>
+    </table>
+  </div>
+
+</body>
+
+</html>

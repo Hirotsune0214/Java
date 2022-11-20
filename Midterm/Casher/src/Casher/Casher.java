@@ -72,11 +72,11 @@ public class Casher {
     int userOrder = 0;
     double discountPrice;
     int payment = 0;
-    // 3回は値が入るようになったが、まだ買いますかの質問が表示されYesを押すと抜けるようになっているので修正が必必要
+    
     for (int i = 0; i < 3; i++) {
 
       System.out.println("Please type 1 or 2 or 3");
-      userOrder = sc.nextInt(); // 15ドルを与える
+      userOrder = sc.nextInt(); 
 
       if (userOrder == 1) {
         total += 15;
@@ -139,19 +139,6 @@ public class Casher {
     }
     System.out.println();
     System.out.println("Accepted\r\nThank you for shopping ");
-
-    /* 
-    レシートを作成するか検討する
-    動画を再度確認して決める
-    **************
-    *
-    *Thank you for shopping
-    *
-    *
-    *
-    *
-    **************
-    */
 
   } // main
 } // class
